@@ -44,30 +44,6 @@ in
   # systemd.services.nix-daemon.environment.https_proxy = "http://localhost:7890";
   fonts.fontDir.enable = true;
 
-  system.fsPackages = [ pkgs.bindfs ];
-  fileSystems =
-    let
-      mkRoSymBind = path: {
-        device = path;
-        fsType = "fuse.bindfs";
-        options = [
-          "ro"
-          "resolve-symlinks"
-          "x-gvfs-hide"
-        ];
-      };
-      aggregatedFonts = pkgs.buildEnv {
-        name = "system-fonts";
-        paths = config.fonts.packages;
-        pathsToLink = [ "/share/fonts" ];
-      };
-    in
-    {
-      # Create an FHS mount to support flatpak host icons/fonts
-      "/usr/share/icons" = mkRoSymBind (config.system.path + "/share/icons");
-      "/usr/share/fonts" = mkRoSymBind (aggregatedFonts + "/share/fonts");
-    };
-
   fonts = {
     fontconfig = {
       enable = true;
@@ -88,13 +64,14 @@ in
         "Sarasa Mono SC"
       ];
       defaultFonts.sansSerif = [
-        "Noto Serif CJK SC"
         "LXGW WenKai Mono"
+        "MiSans"
+        "Noto Sans CJK SC"
         "DejaVu Sans"
       ];
       defaultFonts.serif = [
-        "Noto Sans CJK SC"
         "LXGW WenKai Mono"
+        "Noto Serif CJK SC"
       ];
 
       localConf = builtins.readFile ./fontconfig/fonts.conf;
