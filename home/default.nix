@@ -56,7 +56,6 @@
       # mailspring
       _1password-gui
       ulauncher
-      mailspring
       # steam
     ]
     ++ (with edgePkgs; [
@@ -65,33 +64,6 @@
       mise
       # clash-verge-rev
     ]);
-
-  xdg.desktopEntries = {
-    Mailspring = {
-      name = "Mailspring";
-      comment = "The best email app for people and teams at work";
-      genericName = "Mail Client";
-      exec = ''
-        mailspring --password-store="gnome-keyring" %U
-      '';
-      # exec = ''
-      # mailspring --password-store="kwallet5" %U
-      # '';
-      icon = "mailspring";
-      type = "Application";
-      startupNotify = true;
-      categories = [
-        "GNOME"
-        "GTK"
-        "Network"
-        "Email"
-      ];
-      mimeType = [
-        "x-scheme-handler/mailto"
-        "x-scheme-handler/mailspring"
-      ];
-    };
-  };
 
   systemd.user.services.ulauncher = {
     Unit = {

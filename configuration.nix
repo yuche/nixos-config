@@ -214,6 +214,10 @@ in
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
   services.flatpak.enable = true;
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

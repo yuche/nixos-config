@@ -131,6 +131,8 @@ in
     };
   };
 
+  xdg.configFile."fontconfig/fonts.conf".source = ../fontconfig/fonts.conf;
+
   home.packages =
     with pkgs;
     [
