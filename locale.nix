@@ -31,7 +31,6 @@ in
       fcitx5.addons = with pkgs; [
         fcitx5-rime
         fcitx5-configtool
-        fcitx5-chinese-addons
         fcitx5-gtk
         fcitx5-nord
         fcitx5-lua
@@ -52,10 +51,7 @@ in
         autohint = false;
         # hintstyle = "hintslight(10px,12px)";
       };
-      defaultFonts.emoji = [
-        "Twitter Color Emoji"
-        "Noto Color Emoji"
-      ];
+      defaultFonts.emoji = [ "Noto Color Emoji" ];
       defaultFonts.monospace = [
         "UbuntuMono Nerd Font Mono"
         "Symbols Nerd Font"
@@ -64,10 +60,8 @@ in
         "Sarasa Mono SC"
       ];
       defaultFonts.sansSerif = [
-        "LXGW WenKai Mono"
-        "MiSans"
         "Noto Sans CJK SC"
-        "DejaVu Sans"
+        "Noto Color Emoji"
       ];
       defaultFonts.serif = [
         "LXGW WenKai Mono"
@@ -84,7 +78,6 @@ in
         font-awesome
 
         noto-fonts-color-emoji
-        twitter-color-emoji
 
         cascadia-code
         noto-fonts-cjk-sans
