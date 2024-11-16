@@ -2,10 +2,17 @@
   config,
   pkgs,
   lib,
-  edgePkgs,
+  nixpkgs-edge,
   ...
 }:
-
+let
+  edge-pkgs = import nixpkgs-edge {
+    system = pkgs.system;
+    config = {
+      allowUnfree = true;
+    };
+  };
+in
 {
   imports = [
     ../programs/ulauncher.nix
@@ -47,7 +54,7 @@
       ulauncher
       # steam
     ]
-    ++ (with edgePkgs; [
+    ++ (with edge-pkgs; [
       code-cursor
       zed-editor
       mise

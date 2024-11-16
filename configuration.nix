@@ -181,7 +181,7 @@ in
     wirelesstools
     pciutils
     nixd
-    home-manager
+    # home-manager
     libsecret
     python3
     gcc
