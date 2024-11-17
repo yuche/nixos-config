@@ -19,6 +19,7 @@ in
     ../programs/git.nix
     ../programs/zsh.nix
     ../programs/gnome.nix
+    ../programs/fcitx5.nix
   ];
 
   home.username = "yuche";

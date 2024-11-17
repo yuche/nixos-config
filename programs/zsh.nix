@@ -27,8 +27,8 @@
     shellAliases = {
       ll = "lsd -l -a";
       update = "sudo nixos-rebuild switch --flake ~/nix-config#nixos";
-      hm = "home-manager switch --flake ~/nix-config#yuche";
       cl = "clear";
+      open = "xdg-open";
     };
     history = {
       size = 10000;

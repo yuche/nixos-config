@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     nixpkgs-edge.url = "github:nixos/nixpkgs/nixos-unstable";
+    nur.url = "github:nix-community/NUR";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
@@ -14,6 +15,7 @@
       url = "github:hchunhui/librime-lua?rev=b210d0cfbd2a3cc6edd4709dd0a92c479bfca10b";
       flake = false;
     };
+
   };
 
   outputs =
