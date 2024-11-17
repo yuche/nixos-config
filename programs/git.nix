@@ -4,5 +4,10 @@
     enable = true;
     userName = "yuche";
     userEmail = "i@yuche.me";
+    extraConfig = {
+      core = {
+        editor = "vim";
+      };
+    };
   };
 }

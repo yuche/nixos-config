@@ -4,7 +4,9 @@
 {
   config,
   pkgs,
+  nixpkgs-edge,
   lib,
+  inputs,
   ...
 }:
 let
@@ -18,9 +20,35 @@ let
     ];
   };
 
+  edge-pkgs = import nixpkgs-edge {
+    system = pkgs.system;
+    config = {
+      allowUnfree = true;
+    };
+  };
+
 in
 # fontconfigFile = import ./fontconfig.nix { inherit config lib pkgs; };
 {
+  nixpkgs.overlays = [
+    (final: prev: {
+      librime = prev.librime.override {
+        plugins = [
+          (pkgs.stdenv.mkDerivation {
+            name = "librime-lua";
+            version = "0.1.0";
+            src = inputs.librime-lua;
+            propagatedBuildInputs = with pkgs; [ lua ];
+            installPhase = ''
+              mkdir -p $out
+              cp -r * $out
+            '';
+          })
+        ];
+      };
+    })
+  ];
+
   i18n = {
     supportedLocales = [
       "en_US.UTF-8/UTF-8"
@@ -28,13 +56,7 @@ in
     ];
     inputMethod = {
       enabled = "fcitx5";
-      fcitx5.addons = with pkgs; [
-        fcitx5-rime
-        fcitx5-configtool
-        fcitx5-gtk
-        fcitx5-nord
-        fcitx5-lua
-      ];
+      fcitx5.addons = with pkgs; [ fcitx5-rime ];
     };
   };
 

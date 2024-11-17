@@ -21,6 +21,22 @@
         "type": "github"
       }
     },
+    "librime-lua": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1730516844,
+        "narHash": "sha256-ETjLN40G4I0FEsQgNY8JM4AInqyb3yJwEJTGqdIHGWg=",
+        "owner": "hchunhui",
+        "repo": "librime-lua",
+        "rev": "b210d0cfbd2a3cc6edd4709dd0a92c479bfca10b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hchunhui",
+        "repo": "librime-lua",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1731239293,
@@ -56,6 +72,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "librime-lua": "librime-lua",
         "nixpkgs": "nixpkgs",
         "nixpkgs-edge": "nixpkgs-edge"
       }

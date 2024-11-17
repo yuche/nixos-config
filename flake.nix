@@ -9,6 +9,11 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    librime-lua = {
+      url = "github:hchunhui/librime-lua?rev=b210d0cfbd2a3cc6edd4709dd0a92c479bfca10b";
+      flake = false;
+    };
   };
 
   outputs =
@@ -22,7 +27,7 @@
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
-          inherit nixpkgs-edge;
+          inherit nixpkgs-edge inputs;
         };
         modules = [
           ./configuration.nix
