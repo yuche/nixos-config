@@ -151,9 +151,9 @@
         # 翻页 , .
         - { when: paging, accept: comma, send: Page_Up }
         - { when: has_menu, accept: period, send: Page_Down }
-    speller:
-      algebra:
-        - derive/^([zcs])h/$1/          # zh* ch* sh* 派生出 z* c* s*
-        - derive/^([zcs])([^h])/$1h$2/  # z* c* s*    派生出 zh* ch* sh*
+    # speller:
+    #   algebra:
+    #     - derive/^([zcs])h/$1/          # zh* ch* sh* 派生出 z* c* s*
+    #     - derive/^([zcs])([^h])/$1h$2/  # z* c* s*    派生出 zh* ch* sh*
   '';
 }
