@@ -59,6 +59,7 @@ in
       code-cursor
       zed-editor
       mise
+      fastfetch
       # clash-verge-rev
     ]);
 
