@@ -31,10 +31,29 @@ in
       inherit pkgs;
     };
   };
+  hardware.enableRedistributableFirmware = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    plymouth = {
+      enable = true;
+      theme = "bgrt";
+    };
+
+    initrd = {
+      systemd.enable = true;
+      verbose = false;
+      kernelModules = [ "amdgpu" ];
+    };
+
+    kernelParams = [
+      "quiet"
+      "splash"
+      "rd.udev.log_level=3"
+    ];
+  };
 
   networking.extraHosts = ''
     127.0.0.1 local.joyid.dev

@@ -60,6 +60,8 @@ in
       zed-editor
       mise
       fastfetch
+      hoppscotch
+      cosmic-term
       # clash-verge-rev
     ]);
 

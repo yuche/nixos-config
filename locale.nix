@@ -52,7 +52,8 @@ in
       "zh_CN.UTF-8/UTF-8"
     ];
     inputMethod = {
-      enabled = "fcitx5";
+      enable = true;
+      type = "fcitx5";
       fcitx5.ignoreUserConfig = false;
       fcitx5.addons = with pkgs; [
         # (fcitx5-rime.override {
@@ -113,6 +114,10 @@ in
         intel-one-mono
         inter
         sarasa-gothic
+        vistafonts
+        wqy_microhei
+        wqy_zenhei
+
       ])
       ++ [
         # pkgs.nerdfonts

@@ -141,11 +141,14 @@
 
   # fcitx5-rime custom config
   # TODO: remove all the other files under ~/.local/share/fcitx5/rime, if rime did not correctly build.
-  home.file.".local/share/fcitx5/rime/default.custom.yaml".text = ''
-    patch:
-      menu:
-        page_size: 9
-      schema_list:
-        - schema: rime_ice
-  '';
+  # home.file.".local/share/fcitx5/rime/default.custom.yaml".text = ''
+  #   patch:
+  #     schema_list:
+  #       - schema: "rime_ice"
+  #     menu/page_size: 9
+  #     key_binder:
+  #       bindings:
+  #         - { when: paging, accept: comma, send: Page_Up }
+  #         - { when: has_menu, accept: period, send: Page_Down }
+  # '';
 }
